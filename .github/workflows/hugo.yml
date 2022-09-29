@@ -63,4 +63,8 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        if: >
+          success()
+          && github.ref == 'refs/heads/master'
+          && github.repository == 'halogenica/beautifulhugo'
         uses: actions/deploy-pages@v1
